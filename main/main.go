@@ -1,14 +1,19 @@
 package main
 
 import (
+	"algorithm/context"
 	"algorithm/reflectDemo"
 	"fmt"
+	"sync"
 )
 
 /*
 *  @author liqiqiorz
 *  @data 2020/11/7 22:09
  */
+
+var wg sync.WaitGroup
+
 func calc(index string, a, b int) int {
 	ret := a + b
 	fmt.Println(index, a, b, ret)
@@ -51,8 +56,12 @@ func main() {
 	//algorithm.FuncC()
 
 	//algorithm.ReadFile("../algorithm/IOkeyWord.go")
+
 	var a float32 = 3.14
 	reflectDemo.ReflectType(a)
 	var b = 100
 	reflectDemo.ReflectType(b)
+	wg.Add(1)
+	context.Worker()
+	wg.Wait()
 }

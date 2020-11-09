@@ -1,7 +1,6 @@
 package reflectDemo
 
 import (
-	"fmt"
 	"reflect"
 )
 
@@ -24,10 +23,4 @@ func reflectSetValue2(x interface{}) {
 	if v.Elem().Kind() == reflect.Int64 {
 		v.Elem().SetInt(200)
 	}
-}
-func main() {
-	var a int64 = 100
-	// reflectSetValue1(a) //panic: reflect: reflect.Value.SetInt using unaddressable value
-	reflectSetValue2(&a)
-	fmt.Println(a)
 }

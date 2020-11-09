@@ -14,7 +14,7 @@ func ReflectType(x interface{}) {
 	fmt.Printf("type:%v\n", v)
 }
 
-func main() {
+func Mains() error {
 
 	var a = 3.14
 	ReflectType(a)
@@ -22,4 +22,5 @@ func main() {
 	var b int64 = 100
 	ReflectType(b)
 
+	return fmt.Errorf("asda", a)
 }
